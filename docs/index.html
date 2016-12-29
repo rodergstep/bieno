@@ -25,85 +25,22 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
-
+		
 	<!-- Header CSS (first screen styles from header.min.css) - inserted in the build of the project -->
-	<style>
-		body {
-			color: #000
-		}
-	</style>
+	<style>	body{color:#000} </style>
 
 	<!-- Load CSS, CSS Localstorage & WebFonts Main Function -->
-	<script>
-		! function(e) {
-			"use strict";
-
-			function t(e, t, n) {
-				e.addEventListener ? e.addEventListener(t, n, !1) : e.attachEvent && e.attachEvent("on" + t, n)
-			};
-
-			function n(t, n) {
-				return e.localStorage && localStorage[t + "_content"] && localStorage[t + "_file"] === n
-			};
-
-			function a(t, a) {
-				if (e.localStorage && e.XMLHttpRequest) n(t, a) ? o(localStorage[t + "_content"]) : l(t, a);
-				else {
-					var s = r.createElement("link");
-					s.href = a, s.id = t, s.rel = "stylesheet", s.type = "text/css", r.getElementsByTagName("head")[0].appendChild(s), r.cookie = t
-				}
-			}
-
-			function l(e, t) {
-				var n = new XMLHttpRequest;
-				n.open("GET", t, !0), n.onreadystatechange = function() {
-					4 === n.readyState && 200 === n.status && (o(n.responseText), localStorage[e + "_content"] = n.responseText, localStorage[e + "_file"] = t)
-				}, n.send()
-			}
-
-			function o(e) {
-				var t = r.createElement("style");
-				t.setAttribute("type", "text/css"), r.getElementsByTagName("head")[0].appendChild(t), t.styleSheet ? t.styleSheet.cssText = e : t.innerHTML = e
-			}
-			var r = e.document;
-			e.loadCSS = function(e, t, n) {
-				var a, l = r.createElement("link");
-				if (t) a = t;
-				else {
-					var o;
-					o = r.querySelectorAll ? r.querySelectorAll("style,link[rel=stylesheet],script") : (r.body || r.getElementsByTagName("head")[0]).childNodes, a = o[o.length - 1]
-				}
-				var s = r.styleSheets;
-				l.rel = "stylesheet", l.href = e, l.media = "only x", a.parentNode.insertBefore(l, t ? a : a.nextSibling);
-				var c = function(e) {
-					for (var t = l.href, n = s.length; n--;)
-						if (s[n].href === t) return e();
-					setTimeout(function() {
-						c(e)
-					})
-				};
-				return l.onloadcssdefined = c, c(function() {
-					l.media = n || "all"
-				}), l
-			}, e.loadLocalStorageCSS = function(l, o) {
-				n(l, o) || r.cookie.indexOf(l) > -1 ? a(l, o) : t(e, "load", function() {
-					a(l, o)
-				})
-			}
-		}(this);
-	</script>
+	<script>!function(e){"use strict";function t(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent&&e.attachEvent("on"+t,n)};function n(t,n){return e.localStorage&&localStorage[t+"_content"]&&localStorage[t+"_file"]===n};function a(t,a){if(e.localStorage&&e.XMLHttpRequest)n(t,a)?o(localStorage[t+"_content"]):l(t,a);else{var s=r.createElement("link");s.href=a,s.id=t,s.rel="stylesheet",s.type="text/css",r.getElementsByTagName("head")[0].appendChild(s),r.cookie=t}}function l(e,t){var n=new XMLHttpRequest;n.open("GET",t,!0),n.onreadystatechange=function(){4===n.readyState&&200===n.status&&(o(n.responseText),localStorage[e+"_content"]=n.responseText,localStorage[e+"_file"]=t)},n.send()}function o(e){var t=r.createElement("style");t.setAttribute("type","text/css"),r.getElementsByTagName("head")[0].appendChild(t),t.styleSheet?t.styleSheet.cssText=e:t.innerHTML=e}var r=e.document;e.loadCSS=function(e,t,n){var a,l=r.createElement("link");if(t)a=t;else{var o;o=r.querySelectorAll?r.querySelectorAll("style,link[rel=stylesheet],script"):(r.body||r.getElementsByTagName("head")[0]).childNodes,a=o[o.length-1]}var s=r.styleSheets;l.rel="stylesheet",l.href=e,l.media="only x",a.parentNode.insertBefore(l,t?a:a.nextSibling);var c=function(e){for(var t=l.href,n=s.length;n--;)if(s[n].href===t)return e();setTimeout(function(){c(e)})};return l.onloadcssdefined=c,c(function(){l.media=n||"all"}),l},e.loadLocalStorageCSS=function(l,o){n(l,o)||r.cookie.indexOf(l)>-1?a(l,o):t(e,"load",function(){a(l,o)})}}(this);</script>
 
 	<!-- Load Fonts CSS Start -->
 	<script>
 		// loadCSS( "css/fonts.min.css?ver=1.0.0", false, "all" ); // Loading fonts, if the site is located in a subfolder
-		loadLocalStorageCSS("webfonts", "css/fonts.min.css?ver=1.0.0"); // Loading fonts, if the site is at the root
+		loadLocalStorageCSS( "webfonts", "css/fonts.min.css?ver=1.0.0" ); // Loading fonts, if the site is at the root
 	</script>
 	<!-- Load Fonts CSS End -->
 
 	<!-- Load Custom CSS Start -->
-	<script>
-		loadCSS("css/main.min.css?ver=1.0.0", false, "all");
-	</script>
+	<script>loadCSS( "css/main.min.css?ver=1.0.0", false, "all" );</script>
 	<!-- Load Custom CSS End -->
 
 	<!-- Load Custom CSS Compiled without JS Start -->
@@ -126,8 +63,8 @@
 
 <body>
 
-	<header>
-		<h1>
+    <header>
+    	<h1>
 	    	<a href="#" class="logo__container">
 	    		<svg class="logo">
 	   				<use class="logo--bieno" xlink:href="#logo--bieno"></use>
@@ -135,83 +72,95 @@
 	   			</svg>
 	    	</a>
     	</h1>
-		<div class="menu__container">
-			<input type="checkbox" id="menuTrigger" />
+    	<div class="menu__container">
+	    	<input type="checkbox" id="menuTrigger"/>
 			<div class="menu">
-				<label class="menu__trigger" for="menuTrigger">
+			  <label class="menu__trigger" for="menuTrigger">
 			    <div class="line"></div>
 			    <div class="line"></div>
 			    <div class="line"></div>
 			  </label>
-				<ul class="links">
-					<li class="link"><a href="#">works</a></li>
-					<li class="link"><a href="#">design</a></li>
-					<li class="link"><a href="#">about me</a></li>
-					<li class="link"><a href="#">contact</a></li>
-				</ul>
+			  <ul class="links">
+			    <li class="link"><a href="#">works</a></li>
+			    <li class="link"><a href="#">design</a></li>
+			    <li class="link"><a href="#">about me</a></li>
+			    <li class="link"><a href="#">contact</a></li>
+			  </ul>
 			</div>
-		</div>
-	</header>
+    	</div>
+    </header>
+    
 
+  
+ <div class="swiper-container">
+        <div class="parallax-bg" data-swiper-parallax="-40%"></div>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+            <a href="http://okama.com.ua/" target="_blank>
+            <picture>
+			    <source srcset="img/screencapture/okama.jpg" media="(max-width: 768px)">
+			    <source srcset="img/screencapture/okama.jpg">
+			    <img srcset="img/screencapture/okama.jpg" alt="Bienov`s web studio">
+			</picture>
+                </a>
+                <div class="title">Okama</div>
+                <!-- <div class="subtitle">Subtitle</div> -->
+            </div>
 
+            <div class="swiper-slide">
+            <a href="https://rodergstep.github.io/SPC/" target="_blank>
+            	<picture>
+			    <source srcset="img/screencapture/ursula.jpg" media="(max-width: 768px)">
+			    <source srcset="img/screencapture/ursula.jpg">
+			    <img srcset="img/screencapture/ursula.jpg" alt="Bienov`s web studio">
+			</picture>
+			</a>
+                <div class="title">Friends</div>
+                <!-- <div class="subtitle">Subtitle</div> -->
+            </div>
 
-	<div class="swiper-container">
-		<div class="parallax-bg" data-swiper-parallax="-40%"></div>
-		<div class="swiper-wrapper">
-			<div class="swiper-slide">
-				<picture>
-					<source srcset="img/screencapture/okama.jpg" media="(max-width: 768px)">
-					<source srcset="img/screencapture/okama.jpg">
-					<img srcset="img/screencapture/okama.jpg" alt="Bienov`s web studio">
-				</picture>
-				<div class="title">Okama</div>
-				<div class="subtitle">Subtitle</div>
-			</div>
-			<div class="swiper-slide">
-				<picture>
-					<source srcset="img/screencapture/ursula.jpg" media="(max-width: 768px)">
-					<source srcset="img/screencapture/ursula.jpg">
-					<img srcset="img/screencapture/ursula.jpg" alt="Bienov`s web studio">
-				</picture>
-				<div class="title">Holiday Dream</div>
-				<div class="subtitle">Subtitle</div>
-			</div>
-			<div class="swiper-slide">
-				<picture>
-					<source srcset="img/screencapture/builder.jpg" media="(max-width: 768px)">
-					<source srcset="img/screencapture/builder.jpg">
-					<img srcset="img/screencapture/builder.jpg" alt="Bienov`s web studio">
-				</picture>
-				<div class="title">Slide 3</div>
-				<div class="subtitle">Subtitle</div>
-			</div>
-			<div class="swiper-slide">
-				<picture>
-					<source srcset="img/screencapture/pingbuller.jpg" media="(max-width: 768px)">
-					<source srcset="img/screencapture/pingbuller.jpg">
-					<img srcset="img/screencapture/pingbuller.jpg" alt="Bienov`s web studio">
-				</picture>
-				<div class="title">Slide 4</div>
-				<div class="subtitle">Subtitle</div>
-			</div>
-		</div>
-		<!-- Add Pagination -->
-		<div class="swiper-pagination swiper-pagination-white"></div>
-		<!-- Add Navigation -->
-		<div class="swiper-button-prev swiper-button-white"></div>
-		<div class="swiper-button-next swiper-button-white"></div>
-	</div>
-	<footer class="footer">
-		<div class="footer__email">
-			<a>bienov.roman@gmail.com</a>
-		</div>
-		<div class="footer__socials">
+            <div class="swiper-slide">
+            <a href="https://rodergstep.github.io/PORTFOLIO/" target="_blank>
+            <picture>
+			    <source srcset="img/screencapture/builder.jpg" media="(max-width: 768px)">
+			    <source srcset="img/screencapture/builder.jpg">
+			    <img srcset="img/screencapture/builder.jpg" alt="Bienov`s web studio">
+			</picture>
+			</a>
+                <div class="title">Builder</div>
+                <!-- <div class="subtitle" >Subtitle</div> -->
+            </div>
 
-		</div>
-	</footer>
-
+            <div class="swiper-slide">
+            <a href="https://rodergstep.github.io/homework_9/" target="_blank>
+            <picture>
+			    <source srcset="img/screencapture/pingbuller.jpg" media="(max-width: 768px)">
+			    <source srcset="img/screencapture/pingbuller.jpg">
+			    <img srcset="img/screencapture/pingbuller.jpg" alt="Bienov`s web studio">
+			</picture>
+			</a>
+                <div class="title" >Pingbuller</div>
+                <!-- <div class="subtitle" >Subtitle</div> -->
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-white"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-prev swiper-button-white"></div>
+        <div class="swiper-button-next swiper-button-white"></div>
+    </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+    	<div class="footer__email">
+    		<a>bienov.roman@gmail.com</a>
+    	</div>
+    	<div class="footer__socials">
+    		
+    	</div>
+    </footer>
+  
 	<!-- SVG -->
-	<svg id="logo" style="position: absolute; width: 0; height: 0; overflow: hidden;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 18" role="img" aria-labelledby="title" aria-describedby="desc">
+<svg id="logo" style="position: absolute; width: 0; height: 0; overflow: hidden;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 18" role="img" aria-labelledby="title" aria-describedby="desc">
 	<title id="title">Окама</title>
 	<desc id="desc">Предмети декору та дизайну</desc>
 	<defs>
@@ -235,12 +184,11 @@
 	<!-- Optimized loading JS Start -->
 	<script src="js/vendors/jquery-1.12.0.min.js"></script>
 	<script src="js/vendors/jquery.pjax.js"></script>
-	<!-- <script src="/js/vendors/idangerous.swiper.min.js"></script> -->
-	<script src="js/vendors/swiper.jquery.js"></script>
+    <!-- <script src="/js/vendors/idangerous.swiper.min.js"></script> -->
+    <script src="js/vendors/swiper.jquery.js"></script>
 
 	<script src="js/main.min.js"></script>
 
 
 </body>
-
 </html>
